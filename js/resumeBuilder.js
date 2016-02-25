@@ -52,10 +52,10 @@ var education = {
     ],
     'onlineCourses': [
         {
-            'title': '',
-            'school': '',
-            'date': 2015,
-            'url': ''
+            'title': 'Desenvolvimento Google Android',
+            'school': 'CESAR.EDU',
+            'date': 2014,
+            'url': 'http://ead.cesar.org.br/curso/android-intermediario/'
         }
     ]
 };
