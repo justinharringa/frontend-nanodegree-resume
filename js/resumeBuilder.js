@@ -25,7 +25,15 @@ var bio = {
 };
 bio.display = function () {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
-    $("#header").prepend(formattedName);
+    var headerRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(headerRole).prepend(formattedName);
+    var contactInfo = bio.contacts;
+    for (var contactType in contactInfo) {
+        if (contactInfo.hasOwnProperty(contactType)) {
+            var formattedContactInfo = window['HTML' + contactType].replace("%data%", contactInfo[contactType]);
+            $("#topContacts").append(formattedContactInfo);
+        }
+    }
 };
 
 var education = {
