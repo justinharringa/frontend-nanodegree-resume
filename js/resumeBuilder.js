@@ -24,7 +24,8 @@ var bio = {
     'biopic': 'some url???'
 };
 bio.display = function () {
-
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    $("#header").prepend(formattedName);
 };
 
 var education = {
