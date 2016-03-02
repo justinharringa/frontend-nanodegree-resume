@@ -21,19 +21,29 @@ var bio = {
         'NodeJS',
         'PHP'
     ],
-    'biopic': 'some url???'
+    'biopic': 'https://en.gravatar.com/userimage/51525264/216335978097e685a6400fd8dced7550?size=300'
 };
+
+function replaceData(htmlSnippet, value) {
+    return htmlSnippet.replace("%data%", value);
+}
+
 bio.display = function () {
-    var formattedName = HTMLheaderName.replace("%data%", bio.name);
-    var headerRole = HTMLheaderRole.replace("%data%", bio.role);
-    $("#header").prepend(headerRole).prepend(formattedName);
+    var formattedName = replaceData(HTMLheaderName, bio.name);
+    var headerRole = replaceData(HTMLheaderRole, bio.role);
+    var headerElement = $("#header");
+    headerElement.prepend(headerRole).prepend(formattedName);
+
     var contactInfo = bio.contacts;
     for (var contactType in contactInfo) {
         if (contactInfo.hasOwnProperty(contactType)) {
-            var formattedContactInfo = window['HTML' + contactType].replace("%data%", contactInfo[contactType]);
+            var formattedContactInfo = replaceData(window['HTML' + contactType], contactInfo[contactType]);
             $("#topContacts").append(formattedContactInfo);
         }
     }
+
+    var bioPic = replaceData(HTMLbioPic, bio.biopic);
+    headerElement.append(bioPic);
 };
 
 var education = {
