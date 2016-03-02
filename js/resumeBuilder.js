@@ -116,3 +116,34 @@ var work = {
 work.display = function () {
 
 };
+
+var projects = {
+    'projects': [
+        {
+            'title': 'Pi Temp Monitor',
+            'dates': '2015-12-08-present',
+            'description': 'Temperature monitor that runs on a Raspberry Pi using a DS18B20 waterproof temperature ' +
+            'sensor. Prints temperature and sends the data to DynamoDB',
+            'images': ['https://harringa.com/images/pi-temp-monitor-330.jpg']
+        },
+        {
+            'title': 'My Time',
+            'dates': '2014-08-10-present',
+            'description': 'A small, very simple Android app that can be used to track time. This met my initial needs ' +
+            'but I have more ideas on how to make this more useful for others and to improve it. It was also a way to ' +
+            'experiment with different options in the Google Developer Console and Google Play.',
+            'images': ['https://harringa.com/images/my-time-app-330.jpg']
+        },
+        {
+            'title': 'Harringa.com',
+            'dates': '2006-05-04-present',
+            'description': 'My personal site which generally gets used as a playground. I generally blog there and have' +
+            ' more recently been experimenting with Continuous Deployment of the site via SnapCI & Amazon Web Services.',
+            'images': ['https://harringa.com/images/harringa.com-arch-330.png']
+        }
+    ]
+};
+
+projects.display = function () {
+
+};
