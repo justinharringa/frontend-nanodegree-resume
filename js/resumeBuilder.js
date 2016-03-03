@@ -57,16 +57,6 @@ bio.display = function () {
 var education = {
     'schools': [
         {
-            'name': 'University of Northern Iowa',
-            'location': 'Cedar Falls, IA',
-            'degree': 'Bachelor of Science',
-            'majors': [
-                'Computer Science'
-            ],
-            'dates': 2003,
-            'url': 'https://www.uni.edu'
-        },
-        {
             'name': 'University of Iowa',
             'location': 'Iowa City, IA',
             'degree': 'Master',
@@ -75,6 +65,16 @@ var education = {
             ],
             'dates': 2010,
             'url': 'http://www.uiowa.edu'
+        },
+        {
+            'name': 'University of Northern Iowa',
+            'location': 'Cedar Falls, IA',
+            'degree': 'Bachelor of Science',
+            'majors': [
+                'Computer Science'
+            ],
+            'dates': 2003,
+            'url': 'https://www.uni.edu'
         }
     ],
     'onlineCourses': [
@@ -87,7 +87,13 @@ var education = {
     ]
 };
 education.display = function () {
+    education.schools.forEach(function (school) {
+        $("#education").append(HTMLschoolStart);
 
+        var schoolAndDegree = replaceDataToken(HTMLschoolName, school.name) +
+            replaceDataToken(HTMLschoolDegree, school.degree);
+        $(".education-entry:last").append(schoolAndDegree);
+    });
 };
 
 var work = {
