@@ -231,4 +231,6 @@ projects.display = function () {
     });
 };
 
-$("#mapDiv").append(googleMap);
+function addGoogleMapLocationHolder() {
+    $("#mapDiv").append(googleMap);
+}
