@@ -92,7 +92,11 @@ education.display = function () {
 
         var schoolAndDegree = replaceDataToken(HTMLschoolName, school.name) +
             replaceDataToken(HTMLschoolDegree, school.degree);
-        $(".education-entry:last").append(schoolAndDegree);
+        schoolAndDegree = schoolAndDegree.replace('#', school.url);
+        $(".education-entry:last").append(schoolAndDegree)
+            .append(replaceDataToken(HTMLschoolDates, school.dates))
+            .append(replaceDataToken(HTMLschoolLocation, school.location))
+            .append(replaceDataToken(HTMLschoolMajor, school.majors[0]));
     });
 };
 
