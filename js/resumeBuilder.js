@@ -79,6 +79,12 @@ var education = {
     ],
     'onlineCourses': [
         {
+            'title': 'Front-End Web Developer Nanodegree',
+            'school': 'Udacity',
+            'date': '2015',
+            'url': 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
+        },
+        {
             'title': 'Desenvolvimento Google Android',
             'school': 'CESAR.EDU',
             'date': 2014,
@@ -107,9 +113,10 @@ education.display = function () {
         var titleAndSchool = replaceDataToken(HTMLonlineTitle, course.title) +
             replaceDataToken(HTMLonlineSchool, course.school);
         titleAndSchool = titleAndSchool.replace('#', course.url);
+        var onlineURL = HTMLonlineURL.replace('#', course.url);
         $(".education-entry:last").append(titleAndSchool)
             .append(replaceDataToken(HTMLonlineDates, course.date))
-            .append(replaceDataToken(HTMLonlineURL, course.url));
+            .append(replaceDataToken(onlineURL, course.url));
     });
 };
 
