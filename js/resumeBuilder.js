@@ -161,6 +161,7 @@ var projects = {
     'projects': [
         {
             'title': 'Pi Temp Monitor',
+            'url': 'https://github.com/justinharringa/pi-temp-monitor',
             'dates': '2015-12-08 - Present',
             'description': 'Temperature monitor that runs on a Raspberry Pi using a DS18B20 waterproof temperature ' +
             'sensor. Prints temperature and sends the data to DynamoDB',
@@ -168,6 +169,7 @@ var projects = {
         },
         {
             'title': 'My Time',
+            'url': 'https://github.com/justinharringa/mytime',
             'dates': '2014-08-10 - Present',
             'description': 'A small, very simple Android app that can be used to track time. This met my initial needs ' +
             'but I have more ideas on how to make this more useful for others and to improve it. It was also a way to ' +
@@ -176,6 +178,7 @@ var projects = {
         },
         {
             'title': 'Harringa.com',
+            'url': 'https://github.com/justinharringa/harringa.com',
             'dates': '2006-05-04 - Present',
             'description': 'My personal site which generally gets used as a playground. I generally blog there and have' +
             ' more recently been experimenting with Continuous Deployment of the site via SnapCI & Amazon Web Services.',
@@ -185,5 +188,14 @@ var projects = {
 };
 
 projects.display = function () {
+    projects.projects.forEach(function (project) {
+        $("#projects").append(HTMLprojectStart);
+        var titleWithURL = HTMLprojectTitle.replace('#', project.url);
+        $(".project-entry:last").append(replaceDataToken(titleWithURL, project.title))
+            .append(replaceDataToken(HTMLprojectDates, project.dates))
+            .append(replaceDataToken(HTMLprojectDescription, project.description))
+            .append(replaceDataToken(HTMLprojectImage, project.images[0]));
+    });
+
 
 };
