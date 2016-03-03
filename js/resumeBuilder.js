@@ -190,11 +190,14 @@ var projects = {
 projects.display = function () {
     projects.projects.forEach(function (project) {
         $("#projects").append(HTMLprojectStart);
+        var projectEntry = $(".project-entry:last");
         var titleWithURL = HTMLprojectTitle.replace('#', project.url);
-        $(".project-entry:last").append(replaceDataToken(titleWithURL, project.title))
+        projectEntry.append(replaceDataToken(titleWithURL, project.title))
             .append(replaceDataToken(HTMLprojectDates, project.dates))
-            .append(replaceDataToken(HTMLprojectDescription, project.description))
-            .append(replaceDataToken(HTMLprojectImage, project.images[0]));
+            .append(replaceDataToken(HTMLprojectDescription, project.description));
+        project.images.forEach(function (image) {
+            projectEntry.append(replaceDataToken(HTMLprojectImage, image));
+        });
     });
 
 
