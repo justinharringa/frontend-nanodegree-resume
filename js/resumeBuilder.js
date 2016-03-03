@@ -94,6 +94,7 @@ var work = {
     'jobs': [
         {
             'employer': 'C.E.S.A.R.',
+            'url': 'https://www.cesar.org.br',
             'title': 'Senior Software Developer / Team Lead',
             'location': 'Recife, PE Brazil',
             'dates': '2014-02-03 - Present',
@@ -110,6 +111,7 @@ var work = {
         },
         {
             'employer': 'John Deere',
+            'url': 'https://www.deere.com',
             'title': 'Technology Architect',
             'location': 'Waterloo, IA; Des Moines, IA; Moline, IL',
             'dates': '2001-05-07 - 2014-01-21',
@@ -143,8 +145,12 @@ var work = {
 work.display = function () {
     work.jobs.forEach(function (job) {
         $("#workExperience").append(HTMLworkStart);
-        $(".work-entry:last").append(replaceDataToken(HTMLworkEmployer, job.employer) +
-                replaceDataToken(HTMLworkTitle, job.title))
+
+        var employerAndTitle = replaceDataToken(HTMLworkEmployer, job.employer) +
+            replaceDataToken(HTMLworkTitle, job.title);
+        employerAndTitle = employerAndTitle.replace('#', job.url);
+
+        $(".work-entry:last").append(employerAndTitle)
             .append(replaceDataToken(HTMLworkDates, job.dates))
             .append(replaceDataToken(HTMLworkLocation, job.location))
             .append(replaceDataToken(HTMLworkDescription, job.description));
