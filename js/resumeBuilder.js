@@ -87,8 +87,9 @@ var education = {
     ]
 };
 education.display = function () {
+    var educationElement = $("#education");
     education.schools.forEach(function (school) {
-        $("#education").append(HTMLschoolStart);
+        educationElement.append(HTMLschoolStart);
 
         var schoolAndDegree = replaceDataToken(HTMLschoolName, school.name) +
             replaceDataToken(HTMLschoolDegree, school.degree);
@@ -97,6 +98,18 @@ education.display = function () {
             .append(replaceDataToken(HTMLschoolDates, school.dates))
             .append(replaceDataToken(HTMLschoolLocation, school.location))
             .append(replaceDataToken(HTMLschoolMajor, school.majors[0]));
+    });
+
+    educationElement.append(HTMLonlineClasses);
+    education.onlineCourses.forEach(function (course) {
+        educationElement.append(HTMLschoolStart);
+
+        var titleAndSchool = replaceDataToken(HTMLonlineTitle, course.title) +
+            replaceDataToken(HTMLonlineSchool, course.school);
+        titleAndSchool = titleAndSchool.replace('#', course.url);
+        $(".education-entry:last").append(titleAndSchool)
+            .append(replaceDataToken(HTMLonlineDates, course.date))
+            .append(replaceDataToken(HTMLonlineURL, course.url));
     });
 };
 
