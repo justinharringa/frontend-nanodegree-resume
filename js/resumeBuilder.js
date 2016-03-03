@@ -6,7 +6,7 @@ var bio = {
         'email': 'justin@harringa.com',
         'github': 'https://github.com/justinharringa',
         'twitter': 'https://twitter.com/justinharringa',
-        'location': 'Denver, IA'
+        'location': 'Denver, IA; Recife, PE Brazil'
     },
     'welcomeMessage': 'Established an accomplishments-driven career highlighted by rapid acceleration to increasingly responsible positions while building a vast technical skill set. Loves to learn and automate.',
     'skills': [
