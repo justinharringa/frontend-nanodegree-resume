@@ -24,33 +24,33 @@ var bio = {
     'biopic': 'https://en.gravatar.com/userimage/51525264/216335978097e685a6400fd8dced7550?size=300'
 };
 
-function replaceData(htmlSnippet, value) {
+function replaceDataToken(htmlSnippet, value) {
     return htmlSnippet.replace("%data%", value);
 }
 
 bio.display = function () {
-    var formattedName = replaceData(HTMLheaderName, bio.name);
-    var headerRole = replaceData(HTMLheaderRole, bio.role);
+    var formattedName = replaceDataToken(HTMLheaderName, bio.name);
+    var headerRole = replaceDataToken(HTMLheaderRole, bio.role);
     var headerElement = $("#header");
     headerElement.prepend(headerRole).prepend(formattedName);
 
     var contactInfo = bio.contacts;
     for (var contactType in contactInfo) {
         if (contactInfo.hasOwnProperty(contactType)) {
-            var formattedContactInfo = replaceData(window['HTML' + contactType], contactInfo[contactType]);
+            var formattedContactInfo = replaceDataToken(window['HTML' + contactType], contactInfo[contactType]);
             $("#topContacts").append(formattedContactInfo);
         }
     }
 
-    var bioPic = replaceData(HTMLbioPic, bio.biopic);
+    var bioPic = replaceDataToken(HTMLbioPic, bio.biopic);
     headerElement.append(bioPic);
 
-    var welcomeMessage = replaceData(HTMLwelcomeMsg, bio.welcomeMessage);
+    var welcomeMessage = replaceDataToken(HTMLwelcomeMsg, bio.welcomeMessage);
     headerElement.append(welcomeMessage);
 
     headerElement.append(HTMLskillsStart);
     bio.skills.forEach(function (skill) {
-        $("#skills").append(replaceData(HTMLskills, skill));
+        $("#skills").append(replaceDataToken(HTMLskills, skill));
     });
 };
 
