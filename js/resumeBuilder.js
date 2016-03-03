@@ -81,7 +81,7 @@ var education = {
         {
             'title': 'Front-End Web Developer Nanodegree',
             'school': 'Udacity',
-            'date': '2015',
+            'date': '2016',
             'url': 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
         },
         {
