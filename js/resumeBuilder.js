@@ -229,6 +229,6 @@ projects.display = function () {
             projectEntry.append(replaceDataToken(HTMLprojectImage, image));
         });
     });
-
-
 };
+
+$("#mapDiv").append(googleMap);
