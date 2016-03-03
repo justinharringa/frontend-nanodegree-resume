@@ -44,6 +44,14 @@ bio.display = function () {
 
     var bioPic = replaceData(HTMLbioPic, bio.biopic);
     headerElement.append(bioPic);
+
+    var welcomeMessage = replaceData(HTMLwelcomeMsg, bio.welcomeMessage);
+    headerElement.append(welcomeMessage);
+
+    headerElement.append(HTMLskillsStart);
+    bio.skills.forEach(function (skill) {
+        $("#skills").append(replaceData(HTMLskills, skill));
+    });
 };
 
 var education = {
