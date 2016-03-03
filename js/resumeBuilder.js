@@ -141,7 +141,14 @@ var work = {
 };
 
 work.display = function () {
-
+    work.jobs.forEach(function (job) {
+        $("#workExperience").append(HTMLworkStart);
+        $(".work-entry:last").append(replaceDataToken(HTMLworkEmployer, job.employer) +
+                replaceDataToken(HTMLworkTitle, job.title))
+            .append(replaceDataToken(HTMLworkDates, job.dates))
+            .append(replaceDataToken(HTMLworkLocation, job.location))
+            .append(replaceDataToken(HTMLworkDescription, job.description));
+    });
 };
 
 var projects = {
