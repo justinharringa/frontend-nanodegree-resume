@@ -25,21 +25,21 @@ var bio = {
 };
 
 function replaceDataToken(htmlSnippet, value) {
-    return htmlSnippet.replace("%data%", value);
+    return htmlSnippet.replace('%data%', value);
 }
 
 bio.display = function () {
     var formattedName = replaceDataToken(HTMLheaderName, bio.name);
     var headerRole = replaceDataToken(HTMLheaderRole, bio.role);
-    var headerElement = $("#header");
+    var headerElement = $('#header');
     headerElement.prepend(headerRole);
 
     var contactInfo = bio.contacts;
     for (var contactType in contactInfo) {
         if (contactInfo.hasOwnProperty(contactType)) {
             var formattedContactInfo = replaceDataToken(window['HTML' + contactType], contactInfo[contactType]);
-            $("#topContacts").append(formattedContactInfo);
-            $("#footerContacts").append(formattedContactInfo);
+            $('#topContacts').append(formattedContactInfo);
+            $('#footerContacts').append(formattedContactInfo);
         }
     }
 
@@ -51,7 +51,7 @@ bio.display = function () {
 
     headerElement.append(HTMLskillsStart);
     bio.skills.forEach(function (skill) {
-        $("#skills").append(replaceDataToken(HTMLskills, skill));
+        $('#skills').append(replaceDataToken(HTMLskills, skill));
     });
 };
 
@@ -94,14 +94,14 @@ var education = {
     ]
 };
 education.display = function () {
-    var educationElement = $("#education");
+    var educationElement = $('#education');
     education.schools.forEach(function (school) {
         educationElement.append(HTMLschoolStart);
 
         var schoolAndDegree = replaceDataToken(HTMLschoolName, school.name) +
             replaceDataToken(HTMLschoolDegree, school.degree);
         schoolAndDegree = schoolAndDegree.replace('#', school.url);
-        $(".education-entry:last").append(schoolAndDegree)
+        $('.education-entry:last').append(schoolAndDegree)
             .append(replaceDataToken(HTMLschoolDates, school.dates))
             .append(replaceDataToken(HTMLschoolLocation, school.location))
             .append(replaceDataToken(HTMLschoolMajor, school.majors[0]));
@@ -115,7 +115,7 @@ education.display = function () {
             replaceDataToken(HTMLonlineSchool, course.school);
         titleAndSchool = titleAndSchool.replace('#', course.url);
         var onlineURL = HTMLonlineURL.replace('#', course.url);
-        $(".education-entry:last").append(titleAndSchool)
+        $('.education-entry:last').append(titleAndSchool)
             .append(replaceDataToken(HTMLonlineDates, course.date))
             .append(replaceDataToken(onlineURL, course.url));
     });
@@ -175,20 +175,20 @@ var work = {
 
 work.display = function () {
     work.jobs.forEach(function (job) {
-        $("#workExperience").append(HTMLworkStart);
+        $('#workExperience').append(HTMLworkStart);
 
         var employerAndTitle = replaceDataToken(HTMLworkEmployer, job.employer) +
             replaceDataToken(HTMLworkTitle, job.title);
         employerAndTitle = employerAndTitle.replace('#', job.url);
 
-        $(".work-entry:last").append(employerAndTitle)
+        $('.work-entry:last').append(employerAndTitle)
             .append(replaceDataToken(HTMLworkDates, job.dates))
             .append(replaceDataToken(HTMLworkLocation, job.location))
             .append(replaceDataToken(HTMLworkDescription, job.description))
             .append(HTMLworkHighlightsStart);
 
         job.highlights.forEach(function (highlight) {
-            $(".highlights:last").append(replaceDataToken(HTMLworkHighlight, highlight));
+            $('.highlights:last').append(replaceDataToken(HTMLworkHighlight, highlight));
         });
     });
 };
@@ -225,8 +225,8 @@ var projects = {
 
 projects.display = function () {
     projects.projects.forEach(function (project) {
-        $("#projects").append(HTMLprojectStart);
-        var projectEntry = $(".project-entry:last");
+        $('#projects').append(HTMLprojectStart);
+        var projectEntry = $('.project-entry:last');
         var titleWithURL = HTMLprojectTitle.replace('#', project.url);
         projectEntry.append(replaceDataToken(titleWithURL, project.title))
             .append(replaceDataToken(HTMLprojectDates, project.dates))
@@ -238,5 +238,5 @@ projects.display = function () {
 };
 
 function addGoogleMapLocationHolder() {
-    $("#mapDiv").append(googleMap);
+    $('#mapDiv').append(googleMap);
 }
