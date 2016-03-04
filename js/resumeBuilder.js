@@ -29,11 +29,11 @@ function replaceDataToken(htmlSnippet, value) {
 }
 
 bio.display = function () {
-    var formattedName = replaceDataToken(HTMLheaderName, bio.name);
     var headerRole = replaceDataToken(HTMLheaderRole, bio.role);
     var headerElement = $('#header');
     headerElement.prepend(headerRole);
 
+    // Add all contact info items based on their type to the topContacts and footerContacts
     var contactInfo = bio.contacts;
     for (var contactType in contactInfo) {
         if (contactInfo.hasOwnProperty(contactType)) {
@@ -95,26 +95,35 @@ var education = {
 };
 education.display = function () {
     var educationElement = $('#education');
+    // Create a new school entry div and populate it with the proper data
     education.schools.forEach(function (school) {
         educationElement.append(HTMLschoolStart);
 
+        // Concatenate the school name and degree snippets and then populate the URL
         var schoolAndDegree = replaceDataToken(HTMLschoolName, school.name) +
             replaceDataToken(HTMLschoolDegree, school.degree);
         schoolAndDegree = schoolAndDegree.replace('#', school.url);
+
+        // Append the proper HTML snippets to the last education-entry (this entry)
         $('.education-entry:last').append(schoolAndDegree)
             .append(replaceDataToken(HTMLschoolDates, school.dates))
             .append(replaceDataToken(HTMLschoolLocation, school.location))
             .append(replaceDataToken(HTMLschoolMajor, school.majors[0]));
     });
 
+    // Add online course heading and onlineCourses for each
     educationElement.append(HTMLonlineClasses);
     education.onlineCourses.forEach(function (course) {
         educationElement.append(HTMLschoolStart);
 
+        // Concatenate the title and school snippets while replacing the tokens with data
         var titleAndSchool = replaceDataToken(HTMLonlineTitle, course.title) +
             replaceDataToken(HTMLonlineSchool, course.school);
+        // Replace the hash symbol with the actual URL  of the course
         titleAndSchool = titleAndSchool.replace('#', course.url);
         var onlineURL = HTMLonlineURL.replace('#', course.url);
+
+        // Append the proper HTML snippets to the last education-entry (this entry)
         $('.education-entry:last').append(titleAndSchool)
             .append(replaceDataToken(HTMLonlineDates, course.date))
             .append(replaceDataToken(onlineURL, course.url));
@@ -177,6 +186,7 @@ work.display = function () {
     work.jobs.forEach(function (job) {
         $('#workExperience').append(HTMLworkStart);
 
+        // Concatenate employer name and title snippets then replace the hash with the employer URL
         var employerAndTitle = replaceDataToken(HTMLworkEmployer, job.employer) +
             replaceDataToken(HTMLworkTitle, job.title);
         employerAndTitle = employerAndTitle.replace('#', job.url);
@@ -226,11 +236,14 @@ var projects = {
 projects.display = function () {
     projects.projects.forEach(function (project) {
         $('#projects').append(HTMLprojectStart);
+
+        // Add project info to the current entry (last created)
         var projectEntry = $('.project-entry:last');
         var titleWithURL = HTMLprojectTitle.replace('#', project.url);
         projectEntry.append(replaceDataToken(titleWithURL, project.title))
             .append(replaceDataToken(HTMLprojectDates, project.dates))
             .append(replaceDataToken(HTMLprojectDescription, project.description));
+
         project.images.forEach(function (image) {
             projectEntry.append(replaceDataToken(HTMLprojectImage, image));
         });
