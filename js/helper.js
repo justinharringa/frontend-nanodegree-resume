@@ -38,7 +38,7 @@ var HTMLworkDescription = '<p><br>%data%</p>';
 var HTMLworkHighlightsStart = '<h5 class="highlights-header">Highlights:</h5><ul class="highlights flex-box"></ul>';
 var HTMLworkHighlight = '<li class="highlight flex-item"><span>%data%</span></li>';
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
+var HTMLprojectStart = '<div class="project-entry col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
