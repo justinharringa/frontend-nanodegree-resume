@@ -14,6 +14,18 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+a.anchor {
+  display: block;
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+  margin: 0;
+}
+
+body > .container {
+  padding-top: 60px;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -129,7 +141,11 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #2c7c99;
+}
+
+.lighter-blue {
+  background-color: #2c7c99;
 }
 
 .flex-box {
@@ -149,6 +165,20 @@ ul {
   list-style-type: none;
 }
 
+.highlights-header {
+  padding: 0;
+}
+
+.highlights {
+  list-style-type: disc;
+  justify-content: inherit;
+  margin-left: 20px;
+}
+
+.highlight {
+  float: left;
+}
+
 .biopic {
   float: left;
   padding: 10px;
@@ -160,7 +190,7 @@ img {
   padding: 10px;
 }
 
-span {
+.flex-item > span {
   padding: 5px;
 }
 
@@ -208,7 +238,7 @@ span {
 #mapDiv {
   height: 400px;
   width: 100%;
-  padding-bottom: 5%;
+  padding-bottom: 10%;
 }
 
 @media only screen and (min-width: 750px) {

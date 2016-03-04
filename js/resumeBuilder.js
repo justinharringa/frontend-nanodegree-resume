@@ -32,13 +32,14 @@ bio.display = function () {
     var formattedName = replaceDataToken(HTMLheaderName, bio.name);
     var headerRole = replaceDataToken(HTMLheaderRole, bio.role);
     var headerElement = $("#header");
-    headerElement.prepend(headerRole).prepend(formattedName);
+    headerElement.prepend(headerRole);
 
     var contactInfo = bio.contacts;
     for (var contactType in contactInfo) {
         if (contactInfo.hasOwnProperty(contactType)) {
             var formattedContactInfo = replaceDataToken(window['HTML' + contactType], contactInfo[contactType]);
             $("#topContacts").append(formattedContactInfo);
+            $("#footerContacts").append(formattedContactInfo);
         }
     }
 
@@ -183,7 +184,12 @@ work.display = function () {
         $(".work-entry:last").append(employerAndTitle)
             .append(replaceDataToken(HTMLworkDates, job.dates))
             .append(replaceDataToken(HTMLworkLocation, job.location))
-            .append(replaceDataToken(HTMLworkDescription, job.description));
+            .append(replaceDataToken(HTMLworkDescription, job.description))
+            .append(HTMLworkHighlightsStart);
+
+        job.highlights.forEach(function (highlight) {
+            $(".highlights:last").append(replaceDataToken(HTMLworkHighlight, highlight));
+        });
     });
 };
 
