@@ -2,7 +2,7 @@
 This project is part of a Udacity course where I built a responsive resume.
 
 ## How do I run it?
-Simply open up index.htm
+Simply open up index.html in a browser. :)
 
 ## How do I complete this project?
 
