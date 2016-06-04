@@ -1,3 +1,6 @@
+## What is this project about?
+This project is part of a Udacity course where I built a responsive resume.
+
 ## How do I complete this project?
 
 1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select "View Course Materials."
